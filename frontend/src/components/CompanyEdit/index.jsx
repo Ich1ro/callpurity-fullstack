@@ -26,17 +26,19 @@ const CompanyEdit = () => {
 
 	useEffect(() => {
 		dispatch(fetchDashboardById(id))
-		setData(company)
-		reset({...company})
+		
 	}, [])
 
 	useEffect(() => {
-		dispatch(fetchDashboardById(id))
-	}, [dispatch, id])
+		setData(company)
+		reset({...company})
+	}, [company, reset])
+
+	console.log(data);
 
 	return (
 		<div>
-			{data && (<form onSubmit={handleSubmit(onSubmit)}>
+			{(data !== '' & data.length !== 0) ? (<form onSubmit={handleSubmit(onSubmit)}>
 				<div className="input-item">
 					<div className="input-title">Company Name</div>
 					<input type="text" {...register('company', { required: true })} className="add-input"/>
@@ -87,7 +89,7 @@ const CompanyEdit = () => {
 					Save
 					<Save width={'20px'} />
 				</button>
-			</form>)}
+			</form>) : <div>Loading...</div>}
 		</div>
 	);
 };

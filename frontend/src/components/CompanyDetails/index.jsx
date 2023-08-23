@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import './Details.css';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -25,14 +25,14 @@ const CompanyDetails = () => {
 
 	useEffect(() => {
 		dispatch(fetchDashboardById(id));
-		setData(company.company);
-	}, [location.key]);
+		setData(company.company)
+	}, [dispatch, id, company.company]);
 
 	return (
 		<div className="details-wrapper">
 			<div className="search-result">
 				Search Result:&nbsp;
-				<p className="search-result-title">{company.company}</p>
+				<p className="search-result-title">{data}</p>
 			</div>
 			<div className="details-button-wrapper">
 				<div className="details-buttons">

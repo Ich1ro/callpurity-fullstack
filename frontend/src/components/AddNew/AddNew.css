@@ -3,14 +3,14 @@ h2 {
 	padding: 20px;
 }
 
-form {
+.form {
 	height: 100%;
 	display: grid;
 	padding: 0 20px;
 	grid-template-columns: 50% 50%;
 }
 
-form > div {
+.form > div {
 	display: flex;
 	flex-direction: column;
 	margin-right: 10px;

@@ -50,7 +50,7 @@ const Phone = () => {
 						<Search className="search-icon" />
 					</div>
 					<div className="dropdown">
-						{searchVariables !== '' && searchVariables.length > 0 ? (
+						{/* {searchVariables !== '' && searchVariables.length > 0 ? (
 							searchVariables.dashboard
 								.filter(item => {
 									const searchTerm = value.toLowerCase();
@@ -70,7 +70,7 @@ const Phone = () => {
 								))
 						) : (
 							<div></div>
-						)}
+						)} */}
 					</div>
 				</div>
 			

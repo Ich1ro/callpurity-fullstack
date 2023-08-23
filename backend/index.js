@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const mongoose = require('mongoose')
 const User = require('./models/user')
+const cors = require('cors')
 require('dotenv').config();
 
 mongoose.connect(process.env.MONGODB_URL)
@@ -12,6 +13,7 @@ mongoose.connect(process.env.MONGODB_URL)
 const app = express()
 
 app.use(express.json())
+app.use(cors())
 
 app.post("/register", (request, response) => {
     bcrypt

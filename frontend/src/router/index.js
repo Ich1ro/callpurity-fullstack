@@ -10,12 +10,22 @@ import CompanyDetails from '../components/CompanyDetails';
 import CompanyEdit from '../components/CompanyEdit';
 import CompanyNotBranded from '../components/CompanyNotBranded';
 import CompanyBranded from '../components/CompanyBranded';
+import Login from '../components/Login';
+import Register from '../components/Register';
 
 export const router = createBrowserRouter([
 	{
 		path: '/',
 		element: <App />,
 		children: [
+			{
+				path: '/register',
+				element: <Register />
+			},
+			{
+				path: '/login',
+				element: <Login />
+			},
 			{
 				path: '/dashboard',
 				element: <Dasboard />
