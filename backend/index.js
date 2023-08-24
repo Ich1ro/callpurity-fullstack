@@ -76,6 +76,7 @@ User.findOne({ email: request.body.email })
         response.status(200).send({
             message: "Login Successful",
             email: user.email,
+            fullName: user.fullName,
             token,
         });
         })

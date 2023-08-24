@@ -1,16 +1,24 @@
 import React from 'react';
 import './Menu.css';
 
-import {Add, View, Home, Phone, Upload, Logout} from '../../icons'
+import { Add, View, Home, Phone, Upload, Logout } from '../../icons';
 
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const nonActive = '#3C5163';
 
 const Menu = () => {
+	const navigate = useNavigate();
+
+	const onLogout = () => {
+		localStorage.removeItem('user');
+		navigate('/login');
+	};
+
 	return (
 		<div className="menu-wrapper">
-			<NavLink to={'/dashboard'}
+			<NavLink
+				to={'/dashboard'}
 				className={({ isActive, isPending }) =>
 					isPending ? 'dashboard' : isActive ? 'active dashboard' : 'dashboard'
 				}>
@@ -52,14 +60,10 @@ const Menu = () => {
 				Process FTC Upload
 			</NavLink>
 			<div className="menu-line"></div>
-			<NavLink
-				to={'/logout'}
-				className={({ isActive, isPending }) =>
-					isPending ? 'menu-item' : isActive ? 'active menu-item' : 'menu-item'
-				}>
+			<button className="logout" onClick={onLogout}>
 				<Logout />
-				Log out
-			</NavLink>
+				<p className='logout-text'>Log out</p>
+			</button>
 		</div>
 	);
 };

@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const register = createAsyncThunk('user/register', async (data) => {
-	return axios.post('http://localhost:3001/register', {
+	return axios.post('https://callpurity-backend-6177de9ef619.herokuapp.com/register', {
 		fullName: data.fullName,
 		email: data.email,
 		password: data.password
@@ -10,7 +10,7 @@ export const register = createAsyncThunk('user/register', async (data) => {
 });
 
 export const login = createAsyncThunk('user/login', async (data) => {
-	return axios.post('http://localhost:3001/login', {
+	return axios.post('https://callpurity-backend-6177de9ef619.herokuapp.com/login', {
 		email: data.email,
 		password: data.password
 	}).then(res => res.data);

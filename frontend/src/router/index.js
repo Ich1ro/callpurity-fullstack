@@ -19,14 +19,6 @@ export const router = createBrowserRouter([
 		element: <App />,
 		children: [
 			{
-				path: '/register',
-				element: <Register />
-			},
-			{
-				path: '/login',
-				element: <Login />
-			},
-			{
 				path: '/dashboard',
 				element: <Dasboard />
 			},
@@ -53,7 +45,7 @@ export const router = createBrowserRouter([
 							{
 								path: '/view/:id/branded',
 								element: <CompanyBranded />
-							},
+							}
 						]
 					}
 				]
@@ -71,5 +63,13 @@ export const router = createBrowserRouter([
 				element: <Phone />
 			}
 		]
+	},
+	{
+		path: '/register',
+		element: <Register />
+	},
+	{
+		path: '/login',
+		element: <Login />
 	}
 ]);

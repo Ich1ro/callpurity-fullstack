@@ -1,12 +1,17 @@
-import React from 'react'
-import './Header.css'
+import React from 'react';
+import './Header.css';
 
 const Header = () => {
-  return (
-    <div className='header'>
-        User
-    </div>
-  )
-}
+	const { fullName } = JSON.parse(window.localStorage.getItem('user'));
 
-export default Header
+	return (
+		<div className="header">
+			<div className="header-items">
+				<div className="header-welcome">Welcome,</div>
+				<div className="header-item">{fullName}</div>
+			</div>
+		</div>
+	);
+};
+
+export default Header;

@@ -23,6 +23,28 @@
     height: 44px;
 }
 
+.logout {
+	display: flex;
+	align-items: center;
+	
+	border: none;
+	background: none;
+	cursor: pointer;
+	text-decoration: none;
+    height: 44px;
+	padding: 0;
+}
+
+.logout > svg {
+	padding: 0 10px;
+}
+
+.logout-text {
+	font-size: 16px;
+	font-weight: 500;
+	color: var(--text-color);
+}
+
 .dashboard {
 	margin-top: 5px;
     max-height: 250px;

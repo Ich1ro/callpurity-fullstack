@@ -7,36 +7,36 @@ import { useDispatch, useSelector } from 'react-redux';
 import Login from './components/Login';
 
 function App() {
-	const navigate = useNavigate()
-	const dispatch = useDispatch()
-	const user = useSelector(state => state.user)
-	const userLocal = localStorage.getItem('user')
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
+	const user = useSelector(state => state.user);
+	const userLocal = JSON.parse(window.localStorage.getItem('user'))
 
-	console.log(userLocal);
+	console.log(user);
 
 	useEffect(() => {
-		if(typeof userLocal['token'] !== "undefined") {
+		if (userLocal.hasOwnProperty('token') === false) {
 			console.log(userLocal);
-			navigate('/login')
+			navigate('/login');
 		}
-	}, [user.user.token, navigate, userLocal])
-	
-	console.log(typeof userLocal['token'] !== "undefined" );
+	}, [user.user.token, navigate, userLocal]);
 
 	return (
 		<>
-		{typeof userLocal['token'] !== "undefined" ? (<Login />) : (
-			<div className="wrapper">
-				<div className="main">
-					<SideBar className="sidebar-wrapper" />
-					<div className="content">
-						<Header className="header-wrapper" />
-						<Outlet />
+			{userLocal.hasOwnProperty('token') === true ? (
+				<div className="wrapper">
+					<div className="main">
+						<SideBar className="sidebar-wrapper" />
+						<div className="content">
+							<Header className="header-wrapper" />
+							<Outlet />
+						</div>
 					</div>
+					<Footer className="footer-wrapper" />
 				</div>
-				<Footer className="footer-wrapper" />
-			</div>)
-		}
+			) : (
+				<div>loading...</div>
+			)}
 		</>
 	);
 }
